@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrenamiento: Reportes de Problemas en la Vista</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- BARRA DE PROGRESO -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">SELVAS</div>
+      <div class="header-title">
+        <h1>Entrenamiento para Nuevos Empleados</h1>
+        <p>Cómo hacer reportes de problemas en la vista</p>
+      </div>
+      <div class="badge">Módulo Obligatorio</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 1 — INTRODUCCIÓN
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec1">
+      <div class="section-number">01</div>
+      <h2>¿Qué es un reporte de problema en la vista?</h2>
+      <p>
+        Cuando encontramos algo que <strong>no funciona correctamente</strong> en la interfaz de la
+        aplicación —un botón que no responde, un texto mal posicionado, datos que no se muestran,
+        o cualquier comportamiento inesperado— debemos documentarlo mediante un
+        <strong>reporte de problema</strong>.
+      </p>
+      <p>
+        Un reporte bien redactado permite al equipo de desarrollo <em>reproducir, entender y
+        solucionar</em> el problema de forma eficiente, evitando ir y venir de preguntas.
+      </p>
+
+      <div class="card-grid">
+        <div class="card card-good">
+          <div class="card-icon">✓</div>
+          <h3>¿Cuándo reportar?</h3>
+          <ul>
+            <li>La pantalla no carga o se queda en blanco</li>
+            <li>Un elemento visual está roto o desalineado</li>
+            <li>Un formulario no acepta datos válidos</li>
+            <li>Los datos mostrados no coinciden con los esperados</li>
+            <li>Un flujo de trabajo no puede completarse</li>
+          </ul>
+        </div>
+        <div class="card card-bad">
+          <div class="card-icon">✗</div>
+          <h3>¿Cuándo NO es un reporte?</h3>
+          <ul>
+            <li>No sabes cómo usar una función (→ pide capacitación)</li>
+            <li>Quieres un cambio estético personal (→ solicitud de mejora)</li>
+            <li>El problema ya fue reportado por otro compañero</li>
+            <li>Es un problema de tu conexión o equipo personal</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 2 — ELEMENTOS DE UN BUEN REPORTE
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec2">
+      <div class="section-number">02</div>
+      <h2>Los 6 elementos de un buen reporte</h2>
+      <p>Cada reporte debe contener los siguientes campos. Omitir alguno ralentiza la solución.</p>
+
+      <div class="elements-list">
+
+        <div class="element">
+          <div class="element-num">1</div>
+          <div class="element-body">
+            <h3>Título claro y descriptivo</h3>
+            <p>Resume el problema en una sola oración. Incluye la pantalla o sección afectada.</p>
+            <div class="example-row">
+              <div class="example bad">
+                <span class="tag tag-bad">Malo</span>
+                "Algo está mal"
+              </div>
+              <div class="example good">
+                <span class="tag tag-good">Bueno</span>
+                "Botón 'Guardar' en formulario de Clientes no responde al hacer clic"
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="element">
+          <div class="element-num">2</div>
+          <div class="element-body">
+            <h3>Pasos para reproducir</h3>
+            <p>Lista numerada, paso a paso, de cómo llegar al problema desde la pantalla inicial.</p>
+            <div class="steps-example">
+              <p class="steps-label">Ejemplo:</p>
+              <ol>
+                <li>Iniciar sesión con usuario <code>admin@empresa.com</code></li>
+                <li>Ir al menú <strong>Clientes → Nuevo Cliente</strong></li>
+                <li>Llenar todos los campos obligatorios</li>
+                <li>Hacer clic en el botón <strong>Guardar</strong></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="element">
+          <div class="element-num">3</div>
+          <div class="element-body">
+            <h3>Comportamiento esperado vs. comportamiento actual</h3>
+            <p>Describe con precisión qué debería ocurrir y qué ocurre en realidad.</p>
+            <div class="behavior-table">
+              <div class="behavior-col">
+                <div class="behavior-header expected">Esperado</div>
+                <div class="behavior-body">El sistema guarda el cliente y muestra el mensaje "Registro creado con éxito".</div>
+              </div>
+              <div class="behavior-col">
+                <div class="behavior-header actual">Actual</div>
+                <div class="behavior-body">No pasa nada al hacer clic. La página no responde y no aparece ningún mensaje.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="element">
+          <div class="element-num">4</div>
+          <div class="element-body">
+            <h3>Evidencia visual (captura de pantalla o grabación)</h3>
+            <p>Una imagen vale más que mil palabras. Siempre adjunta una captura o video del problema.</p>
+            <div class="tip-box">
+              <strong>Consejos para capturas efectivas:</strong>
+              <ul>
+                <li>Captura toda la pantalla, no solo el área del error</li>
+                <li>Si hay un mensaje de error, asegúrate de que sea legible</li>
+                <li>Usa la herramienta de recorte del sistema (<code>Win+Shift+S</code> / <code>Cmd+Shift+4</code>)</li>
+                <li>Para problemas de flujo, considera grabar un video corto con Loom o similares</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="element">
+          <div class="element-num">5</div>
+          <div class="element-body">
+            <h3>Entorno y datos del sistema</h3>
+            <p>Especifica dónde ocurre el problema para que pueda reproducirse exactamente.</p>
+            <div class="env-grid">
+              <div class="env-item"><span class="env-label">Navegador</span><span class="env-value">Chrome 124 / Firefox 125 / Safari 17</span></div>
+              <div class="env-item"><span class="env-label">Sistema Operativo</span><span class="env-value">Windows 11 / macOS Sonoma / Ubuntu 22</span></div>
+              <div class="env-item"><span class="env-label">URL de la pantalla</span><span class="env-value">ej: /clientes/nuevo</span></div>
+              <div class="env-item"><span class="env-label">Usuario afectado</span><span class="env-value">Tu correo o rol (admin, vendedor…)</span></div>
+              <div class="env-item"><span class="env-label">Frecuencia</span><span class="env-value">Siempre / A veces / Solo una vez</span></div>
+              <div class="env-item"><span class="env-label">Mensaje de error</span><span class="env-value">Texto exacto del error si aparece</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="element">
+          <div class="element-num">6</div>
+          <div class="element-body">
+            <h3>Prioridad o impacto</h3>
+            <p>Indica qué tan crítico es el problema para el negocio.</p>
+            <div class="priority-grid">
+              <div class="priority-item p-critical">
+                <div class="p-label">Crítico</div>
+                <div class="p-desc">Bloquea completamente el trabajo. Nadie puede avanzar.</div>
+              </div>
+              <div class="priority-item p-high">
+                <div class="p-label">Alto</div>
+                <div class="p-desc">Afecta funciones principales pero hay solución alternativa.</div>
+              </div>
+              <div class="priority-item p-medium">
+                <div class="p-label">Medio</div>
+                <div class="p-desc">Incomoda el trabajo pero no lo bloquea.</div>
+              </div>
+              <div class="priority-item p-low">
+                <div class="p-label">Bajo</div>
+                <div class="p-desc">Problema visual o de detalle menor.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 3 — PROCESO PASO A PASO
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec3">
+      <div class="section-number">03</div>
+      <h2>Proceso para crear un reporte</h2>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-icon">🔍</div>
+          <div class="process-content">
+            <h3>Paso 1 — Verifica que es un bug real</h3>
+            <p>Antes de reportar, descarta causas básicas:</p>
+            <ul>
+              <li>Recarga la página (<code>Ctrl+F5</code> / <code>Cmd+Shift+R</code>)</li>
+              <li>Limpia la caché del navegador</li>
+              <li>Prueba en modo incógnito o en otro navegador</li>
+              <li>Verifica que tu internet funcione correctamente</li>
+              <li>Cierra sesión y vuelve a iniciar</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-connector">↓</div>
+
+        <div class="process-step">
+          <div class="process-icon">🔎</div>
+          <div class="process-content">
+            <h3>Paso 2 — Busca si ya fue reportado</h3>
+            <p>
+              Antes de crear un nuevo ticket, revisa el sistema de seguimiento de incidencias
+              (Jira / GitHub Issues / el sistema que use tu equipo) para evitar duplicados.
+              Si ya existe, agrega tus observaciones como comentario.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-connector">↓</div>
+
+        <div class="process-step">
+          <div class="process-icon">📝</div>
+          <div class="process-content">
+            <h3>Paso 3 — Documenta el problema completo</h3>
+            <p>Reúne todos los 6 elementos descritos en la sección anterior antes de abrir el ticket.</p>
+          </div>
+        </div>
+
+        <div class="process-connector">↓</div>
+
+        <div class="process-step">
+          <div class="process-icon">🎫</div>
+          <div class="process-content">
+            <h3>Paso 4 — Crea el ticket en el sistema</h3>
+            <p>Abre un nuevo issue/ticket con toda la información organizada. Usa la plantilla del equipo si existe.</p>
+          </div>
+        </div>
+
+        <div class="process-connector">↓</div>
+
+        <div class="process-step">
+          <div class="process-icon">📢</div>
+          <div class="process-content">
+            <h3>Paso 5 — Notifica al equipo si es urgente</h3>
+            <p>
+              Si el problema es <strong>Crítico o Alto</strong>, notifica directamente por el canal
+              de comunicación del equipo (Slack, Teams, etc.) con el enlace al ticket.
+              Para problemas Medio o Bajo, el ticket solo es suficiente.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-connector">↓</div>
+
+        <div class="process-step">
+          <div class="process-icon">🔄</div>
+          <div class="process-content">
+            <h3>Paso 6 — Sigue el ticket y responde preguntas</h3>
+            <p>
+              El desarrollador puede necesitar más información. Mantente atento a los comentarios
+              y responde a tiempo. Una vez resuelto, confirma que el problema está corregido
+              antes de cerrar el ticket.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 4 — PLANTILLA
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec4">
+      <div class="section-number">04</div>
+      <h2>Plantilla de reporte</h2>
+      <p>Copia y usa esta plantilla al crear cualquier reporte de problema en la vista:</p>
+
+      <div class="template-container">
+        <button class="copy-btn" onclick="copyTemplate()">Copiar plantilla</button>
+        <pre id="templateText">## 🐛 Reporte de Problema — Vista
+
+**Título:** [Nombre corto del problema y pantalla afectada]
+
+---
+
+### Pasos para reproducir
+1.
+2.
+3.
+
+### Comportamiento esperado
+[Describe qué debería ocurrir]
+
+### Comportamiento actual
+[Describe qué ocurre realmente]
+
+### Evidencia
+- [ ] Captura de pantalla adjunta
+- [ ] Video adjunto (si aplica)
+- Descripción de la evidencia:
+
+### Entorno
+| Campo          | Valor |
+|----------------|-------|
+| Navegador      |       |
+| Sistema Operativo |    |
+| URL / Pantalla |       |
+| Usuario / Rol  |       |
+| Frecuencia     | Siempre / A veces / Solo una vez |
+| Mensaje de error |     |
+
+### Prioridad
+- [ ] 🔴 Crítico — Bloquea el trabajo
+- [ ] 🟠 Alto — Función principal afectada
+- [ ] 🟡 Medio — Incomoda pero no bloquea
+- [ ] 🟢 Bajo — Detalle visual menor
+
+### Información adicional
+[Cualquier otra observación relevante]
+</pre>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 5 — EJEMPLOS REAL VS INCOMPLETO
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec5">
+      <div class="section-number">05</div>
+      <h2>Ejemplos: reporte incompleto vs. reporte completo</h2>
+
+      <div class="compare-container">
+        <div class="compare-panel bad-panel">
+          <div class="compare-header">
+            <span class="compare-icon">✗</span> Reporte incompleto
+          </div>
+          <div class="compare-body">
+            <p><strong>Título:</strong> No funciona</p>
+            <hr/>
+            <p>No puedo guardar. El botón no hace nada. Por favor arreglen esto rápido.</p>
+          </div>
+          <div class="compare-problems">
+            <strong>Problemas:</strong>
+            <ul>
+              <li>Título no indica qué pantalla ni qué función</li>
+              <li>No hay pasos para reproducir</li>
+              <li>No se menciona comportamiento esperado</li>
+              <li>Sin captura de pantalla</li>
+              <li>Sin información del entorno</li>
+              <li>Sin prioridad definida</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="compare-panel good-panel">
+          <div class="compare-header">
+            <span class="compare-icon">✓</span> Reporte completo
+          </div>
+          <div class="compare-body">
+            <p><strong>Título:</strong> Botón "Guardar" en Nuevo Cliente no responde al hacer clic</p>
+            <hr/>
+            <p><strong>Pasos:</strong></p>
+            <ol>
+              <li>Iniciar sesión como <code>vendedor1@empresa.com</code></li>
+              <li>Ir a <strong>Clientes → Nuevo Cliente</strong></li>
+              <li>Llenar todos los campos del formulario</li>
+              <li>Hacer clic en <strong>Guardar</strong></li>
+            </ol>
+            <p><strong>Esperado:</strong> El sistema guarda el cliente y muestra "Registro creado".</p>
+            <p><strong>Actual:</strong> Nada ocurre. Sin mensaje, sin redirección.</p>
+            <p><strong>Entorno:</strong> Chrome 124, Windows 11, /clientes/nuevo, rol Vendedor, frecuencia: siempre.</p>
+            <p><strong>Captura:</strong> [imagen adjunta mostrando el formulario lleno y el botón]</p>
+            <p><strong>Prioridad:</strong> 🔴 Crítico — impide registrar nuevos clientes.</p>
+          </div>
+          <div class="compare-problems good-problems">
+            <strong>¿Por qué es bueno?</strong>
+            <ul>
+              <li>Título claro con pantalla y acción afectada</li>
+              <li>Pasos específicos y reproducibles</li>
+              <li>Diferencia clara entre esperado y actual</li>
+              <li>Evidencia visual adjunta</li>
+              <li>Entorno completo</li>
+              <li>Prioridad y justificación definidas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 6 — CUESTIONARIO
+    ════════════════════════════════════════════════ -->
+    <section class="section" id="sec6">
+      <div class="section-number">06</div>
+      <h2>Cuestionario de verificación</h2>
+      <p>Responde las siguientes preguntas para completar el módulo.</p>
+
+      <form id="quizForm" class="quiz">
+
+        <div class="quiz-question" id="q1">
+          <p><strong>1.</strong> ¿Cuál es el primer paso antes de crear un reporte de problema?</p>
+          <label><input type="radio" name="q1" value="a"> Notificar al gerente inmediatamente</label>
+          <label><input type="radio" name="q1" value="b"> Verificar que es un bug real (recargar, limpiar caché, probar en otro navegador)</label>
+          <label><input type="radio" name="q1" value="c"> Buscar el problema en Google</label>
+          <label><input type="radio" name="q1" value="d"> Esperar a que alguien más lo reporte</label>
+          <div class="quiz-feedback" id="f1"></div>
+        </div>
+
+        <div class="quiz-question" id="q2">
+          <p><strong>2.</strong> Un compañero reporta: <em>"La app está rara hoy"</em>. ¿Qué elemento crítico falta?</p>
+          <label><input type="radio" name="q2" value="a"> Firma del empleado</label>
+          <label><input type="radio" name="q2" value="b"> Nombre del gerente</label>
+          <label><input type="radio" name="q2" value="c"> Pasos para reproducir, pantalla afectada, comportamiento esperado vs. actual y evidencia</label>
+          <label><input type="radio" name="q2" value="d"> El número de versión del sistema</label>
+          <div class="quiz-feedback" id="f2"></div>
+        </div>
+
+        <div class="quiz-question" id="q3">
+          <p><strong>3.</strong> El sistema de inventario no puede procesar ninguna venta. ¿Qué prioridad asignas?</p>
+          <label><input type="radio" name="q3" value="a"> 🟢 Bajo</label>
+          <label><input type="radio" name="q3" value="b"> 🟡 Medio</label>
+          <label><input type="radio" name="q3" value="c"> 🟠 Alto</label>
+          <label><input type="radio" name="q3" value="d"> 🔴 Crítico</label>
+          <div class="quiz-feedback" id="f3"></div>
+        </div>
+
+        <div class="quiz-question" id="q4">
+          <p><strong>4.</strong> Ya existe un ticket para el problema que encontraste. ¿Qué debes hacer?</p>
+          <label><input type="radio" name="q4" value="a"> Crear un nuevo ticket de todas formas</label>
+          <label><input type="radio" name="q4" value="b"> No hacer nada y esperar</label>
+          <label><input type="radio" name="q4" value="c"> Agregar tus observaciones como comentario en el ticket existente</label>
+          <label><input type="radio" name="q4" value="d"> Eliminar el ticket anterior y crear uno nuevo</label>
+          <div class="quiz-feedback" id="f4"></div>
+        </div>
+
+        <div class="quiz-question" id="q5">
+          <p><strong>5.</strong> ¿Qué incluir en la evidencia de un reporte de problema visual?</p>
+          <label><input type="radio" name="q5" value="a"> Solo el número de línea del código fuente</label>
+          <label><input type="radio" name="q5" value="b"> Una captura de pantalla o video que muestre claramente el problema</label>
+          <label><input type="radio" name="q5" value="c"> Solo el mensaje de error en texto</label>
+          <label><input type="radio" name="q5" value="d"> El historial completo del navegador</label>
+          <div class="quiz-feedback" id="f5"></div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="checkQuiz()">Verificar respuestas</button>
+      </form>
+
+      <div class="quiz-result" id="quizResult" style="display:none;"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SECCIÓN 7 — RESUMEN
+    ════════════════════════════════════════════════ -->
+    <section class="section section-summary" id="sec7">
+      <div class="section-number">07</div>
+      <h2>Resumen y puntos clave</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="summary-icon">🎯</div>
+          <h3>Sé específico</h3>
+          <p>Describe exactamente qué pantalla, qué acción y qué resultado inesperado obtuviste.</p>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">🔁</div>
+          <h3>Hazlo reproducible</h3>
+          <p>Lista los pasos exactos para que cualquiera pueda ver el problema en su equipo.</p>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">📸</div>
+          <h3>Muestra evidencia</h3>
+          <p>Una captura o video elimina ambigüedades y acelera la solución.</p>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">🌍</div>
+          <h3>Incluye el entorno</h3>
+          <p>Navegador, SO, URL y usuario son datos esenciales para reproducir el error.</p>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">⚡</div>
+          <h3>Define la prioridad</h3>
+          <p>Ayudas al equipo a saber cuándo debe atenderse el problema.</p>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">🤝</div>
+          <h3>Mantente disponible</h3>
+          <p>Responde las preguntas del desarrollador y confirma la corrección al final.</p>
+        </div>
+      </div>
+
+      <div class="completion-box" id="completionBox" style="display:none;">
+        <div class="completion-icon">🏆</div>
+        <h3>¡Módulo completado!</h3>
+        <p>Has aprendido cómo crear reportes de problemas efectivos en la vista. Tu equipo de desarrollo te lo agradece.</p>
+        <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Selvas — Módulo de Entrenamiento: Reportes de Problemas en la Vista &nbsp;|&nbsp; Versión 1.0</p>
+  </footer>
+
+  <script src="training.js"></script>
+</body>
+</html>
